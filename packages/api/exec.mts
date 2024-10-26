@@ -40,7 +40,7 @@ type SpawnCallRequestType = {
 
 export function spawnCall(options: SpawnCallRequestType) {
   const { cwd, env, command, args, stdout, stderr, onExit, onError } = options;
-  const child = spawn(command, args, { cwd: cwd, env: env });
+  const child = spawn(command, args, { cwd: cwd, env: env, shell: true });
 
   child.stdout.on('data', stdout);
   child.stderr.on('data', stderr);
